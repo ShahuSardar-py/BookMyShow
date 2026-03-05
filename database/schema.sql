@@ -34,15 +34,6 @@ CREATE TABLE theaters (
   INDEX idx_created_by (created_by)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Theaters table
-CREATE TABLE theaters (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  name VARCHAR(100) NOT NULL UNIQUE,
-  city VARCHAR(50) NOT NULL,
-  total_seats INT NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 -- Seats table with version column for optimistic locking
 CREATE TABLE seats (
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -81,9 +72,9 @@ CREATE TABLE bookings (
 
 -- Sample data: Insert sample users
 INSERT INTO users (username, email, password_hash, role) VALUES
-('admin_user', 'admin@bookmyseat.com', '$2b$10$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5YmMxSUmGEJiq', 'admin'),
-('john_doe', 'john@example.com', '$2b$10$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5YmMxSUmGEJiq', 'user'),
-('jane_smith', 'jane@example.com', '$2b$10$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5YmMxSUmGEJiq', 'user');
+('admin_user', 'admin@bookmyseat.com', '$2b$10$oC39kCVhBos2jBqnCllULOHt6vSzmIPL2vAZwce5AXHGabHenpEne', 'admin'),
+('john_doe', 'john@example.com', '$2b$10$oC39kCVhBos2jBqnCllULOHt6vSzmIPL2vAZwce5AXHGabHenpEne', 'user'),
+('jane_smith', 'jane@example.com', '$2b$10$oC39kCVhBos2jBqnCllULOHt6vSzmIPL2vAZwce5AXHGabHenpEne', 'user');
 
 -- Sample data: Insert theaters (with admin as creator)
 INSERT INTO theaters (name, city, total_seats, created_by) VALUES
